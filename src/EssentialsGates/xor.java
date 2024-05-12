@@ -1,4 +1,4 @@
-package esencialsGates;
+package EssentialsGates;
 
 public class xor {
     byte inA = 0;

@@ -1,4 +1,4 @@
-package esencialsGates;
+package EssentialsGates;
 
 public class not16 {
     byte[] In = new byte[16];

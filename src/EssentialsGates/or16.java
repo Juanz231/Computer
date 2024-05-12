@@ -1,4 +1,4 @@
-package esencialsGates;
+package EssentialsGates;
 
 public class or16 {
     byte[] inA = new byte[16];

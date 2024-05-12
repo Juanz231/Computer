@@ -1,4 +1,4 @@
-package esencialsGates;
+package EssentialsGates;
 
 public class or {
     byte inA = 0;

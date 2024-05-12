@@ -1,4 +1,4 @@
-package esencialsGates;
+package EssentialsGates;
 
 public class Utilities {
     public static byte[] toBinaryArray(byte input) {
