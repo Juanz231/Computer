@@ -43,5 +43,13 @@ public class Main {
         System.out.printf("a AND b = %s\n", Integer.toBinaryString(resultAnd));
         System.out.printf("a XOR b = %s\n", Integer.toBinaryString(resultXor));
 
+        DMux Dmux = new DMux(0, 0);
+        System.out.printf("DMux(0,0), a = %d, b = %d\n", Dmux.getA(), Dmux.getB());
+        Dmux.setIn(0, 1);
+        System.out.printf("DMux(0,1), a = %d, b = %d\n", Dmux.getA(), Dmux.getB());
+        Dmux.setIn(1, 0);
+        System.out.printf("DMux(1,0), a = %d, b = %d\n", Dmux.getA(), Dmux.getB());
+        Dmux.setIn(1, 1);
+        System.out.printf("DMux(1,1), a = %d, b = %d\n", Dmux.getA(), Dmux.getB());
     }
 }
