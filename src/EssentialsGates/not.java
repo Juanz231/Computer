@@ -15,13 +15,16 @@ public class not {
         this.In = In;
         this.Out = (byte) (~In);
     }
+    public not(int In) {
+        this((byte)In);
+    }
 
     /**
      * This function return the result of the NOT gate.
      *
      * @return The result of the NOT gate.
      */
-    public int getNot(){
+    public byte getNot(){
         return this.Out;
     }
 
