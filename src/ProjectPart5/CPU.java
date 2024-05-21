@@ -46,7 +46,7 @@ public class CPU {
         or Or1 = new or(isAInstruction, isCWriteA);
         byte loadA = Or1.getOr();
 
-        System.out.printf("Executing Intruction: %s", Utilities.toDecimal(instruction));
+        System.out.println("Executing Intruction: "+ Utilities.toDecimal(instruction));
 
         // Selección de la entrada para A
         Mux16 mux1 = new Mux16(instruction, outALU, isCWriteA);
@@ -105,6 +105,8 @@ public class CPU {
         byte PCInc = Not3.getNot();
         programCounter.setIn(outAReg, PCInc, loadPC, reset);
         this.pc = Utilities.SliceArray(programCounter.getOut(), 1, 15);
+
+        System.out.println("The value in Memory[0] is: " + Utilities.toDecimal(this.inM));
     }
 
     public void setIn(byte[] inM, byte[] instruction, byte reset) {

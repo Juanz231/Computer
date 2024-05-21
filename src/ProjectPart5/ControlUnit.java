@@ -1,12 +1,15 @@
 package ProjectPart5;
 import EssentialsGates.Utilities;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class ControlUnit {
     private byte reset;
     private ROM32K rom32K;
     private CPU cpu;
     private Memory memory;
-
+    private Timer timer;
 
     public ControlUnit(byte reset) {
         this.reset = reset;
@@ -17,6 +20,7 @@ public class ControlUnit {
         this.memory = new Memory(new byte[16], (byte) 0, new byte[15]);
 
         // Ejecutar la lógica de la computadora
+        this.timer = new Timer();
         executeLogic();
     }
 
@@ -35,14 +39,23 @@ public class ControlUnit {
     }
 
     public void run() {
-        // Suponiendo que la ROM tiene 32768 direcciones (32K)
-        for (int i = 0; i < 32768; i++) {
-            // Configurar la dirección de la ROM32K con el valor actual de i
-            rom32K.setAddress(Utilities.toBinaryArray((byte) i));
+        timer.schedule(new TimerTask() {
+            int i = 0;
 
-            // Ejecutar la lógica de la computadora
-            executeLogic();
-        }
+            @Override
+            public void run() {
+                // Configurar la dirección de la ROM32K con el valor actual de i
+                rom32K.read(Utilities.toBinaryArray((byte) 0),Utilities.toBinaryArray((byte) i));
+
+                // Ejecutar la lógica de la computadora
+                executeLogic();
+
+                // Comprobar si la instrucción es todo 0s
+                byte[] instruction = rom32K.getOut();
+
+                i++;
+            }
+        }, 0, 500);
     }
 
     public void loadInstructions(byte[][] instructions) {
