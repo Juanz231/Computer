@@ -26,9 +26,9 @@ public class Add16 {
         FullAdder[] fullAdders = new FullAdder[16];
         fullAdders[15] = new FullAdder(InA[15], InB[15], (byte) 0);
         this.Out[15] = (byte) fullAdders[15].getSum();
-        for (int i = 14; i > 0; i++) {
-            fullAdders[i] = new FullAdder(InA[i], InB[i], fullAdders[i - 1].getCarryOut());
-            this.Out[i] = (byte) fullAdders[i].getSum();
+        for (int i = 14; i > 0; i--) {
+            fullAdders[i] = new FullAdder(InA[i], InB[i], fullAdders[i + 1].getCarryOut());
+            this.Out[i] = fullAdders[i].getSum();
         }
     }
     public Add16(byte InA, byte InB) {
@@ -59,9 +59,9 @@ public class Add16 {
         FullAdder[] fullAdders = new FullAdder[16];
         fullAdders[15] = new FullAdder(InA[15], InB[15], (byte) 0);
         this.Out[15] = (byte) fullAdders[15].getSum();
-        for (int i = 14; i > 0; i++) {
-            fullAdders[i] = new FullAdder(InA[i], InB[i], fullAdders[i - 1].getCarryOut());
-            this.Out[i] = (byte) fullAdders[i].getSum();
+        for (int i = 14; i > 0; i--) {
+            fullAdders[i] = new FullAdder(InA[i], InB[i], fullAdders[i + 1].getCarryOut());
+            this.Out[i] = fullAdders[i].getSum();
         }
     }
     

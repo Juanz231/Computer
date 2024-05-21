@@ -4,9 +4,9 @@ package EssentialsGates;
 * This class represents an AND gate.
 */
 public class and {
-    byte inA = 0;
-    byte inB = 0;
-    byte Out = 0;
+    byte inA;
+    byte inB;
+    byte Out;
 
     
     

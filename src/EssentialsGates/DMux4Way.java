@@ -2,7 +2,7 @@ package EssentialsGates;
 
 public class DMux4Way {
     byte In;
-    byte[] Sel = new byte[2];
+    byte[] Sel;
     byte a;
     byte b;
     byte c;

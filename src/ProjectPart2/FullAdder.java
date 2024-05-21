@@ -20,10 +20,10 @@ public class FullAdder {
         this((byte)InA, (byte)InB, (byte)CarryIn);
     }
 
-    public int getSum(){
+    public byte getSum(){
         return this.Sum;
     }
-    public int getCarryOut(){
+    public byte getCarryOut(){
         return this.CarryOut;
     }
 

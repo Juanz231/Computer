@@ -48,14 +48,8 @@ public class ALU {
         byte[] notXOpY = not3.getNot();
         Mux16 mux6 = new Mux16(xOpY, notXOpY, No);
         this.Out = mux6.getOut();
-        byte[] outLSB = new byte[8];
-        for (int i = 15; i > 8; i++) {
-            outLSB[i - 7] = this.Out[i];
-        }
-        byte[] outMSB = new byte[7];
-        for (int i = 8; i > 0; i++) {
-            outMSB[i - 1] = this.Out[i];
-        }
+        byte[] outLSB = Utilities.SliceArray(this.Out, 8, 15);
+        byte[] outMSB = Utilities.SliceArray(this.Out, 1, 7);
         byte outMSBbit = this.Out[0];
 
         or8way or1 = new or8way(outLSB);
@@ -121,7 +115,7 @@ public class ALU {
             outLSB[i - 7] = this.Out[i];
         }
         byte[] outMSB = new byte[7];
-        for (int i = 8; i > 0; i++) {
+        for (int i = 8; i > 0; i--) {
             outMSB[i - 1] = this.Out[i];
         }
         byte outMSBbit = this.Out[0];
@@ -130,7 +124,7 @@ public class ALU {
         byte xOpYOr1 = or1.getOr();
 
         byte[] aux = new byte[8];
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 7; i--) {
             aux[i] = outMSB[i];
         }
         aux[7] = outMSBbit;

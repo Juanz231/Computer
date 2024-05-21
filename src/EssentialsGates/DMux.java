@@ -7,7 +7,7 @@ public class DMux {
     byte b;
 
     public DMux(byte In, byte Sel) {
-        this.In = (byte) In;
+        this.In = In;
         this.Sel = Sel;
         this.a = (byte) (In & ~Sel);
         this.b = (byte) (In & Sel);
